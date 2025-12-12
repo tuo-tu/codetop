@@ -9,7 +9,10 @@ func reverseBetween(head *ListNode, left int, right int) *ListNode {
 	for i := 0; i < left-1; i++ {
 		pre = pre.Next
 	}
-
+	
+	// 切记不要这样写，因为指针的指向都变了
+	// next.Next = cur
+	// cur = next
 	// 开始翻转，头插法
 	cur := pre.Next
 	for i := 0; i < right-left; i++ {
@@ -20,7 +23,3 @@ func reverseBetween(head *ListNode, left int, right int) *ListNode {
 	}
 	return dummy.Next
 }
-
-// 切记不要这样写，因为指针的指向都变了
-// next.Next = cur
-// cur = next
